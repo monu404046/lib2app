@@ -1,0 +1,101 @@
+<div class="card-body">
+    <div class="row justify-content-center ">
+        <div class="col col-12 col-sm-12 col-md-6 col-lg-6">    
+            <div class="card" id="card2">
+                <h5 class="card-header text-center"> Sign Up </h5>
+                <div class="card-body" [formGroup]="registerForm">
+                    <table class="table table-borderless">
+                        <tr>
+                            <td> Name </td>
+                            <td> <input type="text" name="name" class="form-control" [(ngModel)]="user.name" formControlName="name"> </td>
+                        </tr>
+                        <tr class="text-danger" *ngIf="registerForm.controls['name'].hasError('required') && (registerForm.controls['name'].dirty || registerForm.controls['name'].touched)">
+                            <td></td>
+                            <td>This field is required</td>
+                        </tr>
+                        <tr class="text-danger" *ngIf="registerForm.controls['name'].hasError('pattern') && (registerForm.controls['name'].dirty || registerForm.controls['name'].touched)">
+                            <td></td>
+                            <td>Please enter valid name</td>
+                        </tr>
+                        <br>
+                        <tr>
+                            <td> Email </td>
+                            <td> <input type="email" class="form-control" name="email" [(ngModel)]="user.email" formControlName="email"> </td>
+                        </tr>
+                        <tr class="text-danger" *ngIf="registerForm.controls['email'].hasError('required') && (registerForm.controls['email'].dirty || registerForm.controls['email'].touched)">
+                            <td></td>
+                            <td>This field is required</td>
+                        </tr>
+                        <tr class="text-danger" *ngIf="registerForm.controls['email'].hasError('pattern') && (registerForm.controls['email'].dirty || registerForm.controls['email'].touched)">
+                            <td></td>
+                            <td>Please enter valid email address</td>
+                        </tr>
+                        <br>
+                        <tr>
+                            <td> Mobile </td>
+                            <td> <input type="number" class="form-control" name="mobile" [(ngModel)]="user.mobile" formControlName="mobile"> </td>
+                        </tr>
+                        <tr class="text-danger" *ngIf="registerForm.controls['mobile'].hasError('required') && (registerForm.controls['mobile'].dirty || registerForm.controls['mobile'].touched)">
+                            <td></td>
+                            <td>This field is required</td>
+                        </tr>
+                        <tr class="text-danger" *ngIf="registerForm.controls['mobile'].hasError('pattern') && (registerForm.controls['mobile'].dirty || registerForm.controls['mobile'].touched)">
+                            <td></td>
+                            <td>Please enter valid phone number</td>
+                        </tr>
+                        <br>
+                        <tr>
+                            <td> Role </td>
+                            <td> <input type="text" class="form-control" name="role" placeholder="Admin/User" [(ngModel)]="user.role" formControlName="role"> </td>
+                        </tr>
+                        <tr class="text-danger" *ngIf="registerForm.controls['role'].hasError('required') && (registerForm.controls['role'].dirty || registerForm.controls['role'].touched)">
+                            <td></td>
+                            <td>This field is required</td>
+                        </tr>
+                        <tr class="text-danger" *ngIf="registerForm.controls['role'].hasError('pattern') && (registerForm.controls['role'].dirty || registerForm.controls['role'].touched)">
+                            <td></td>
+                            <td>Admin or User</td>
+                        </tr>
+                        <br>
+                        <tr>
+                            <td> Username </td>
+                            <td> <input type="text" class="form-control" name="username" [(ngModel)]="user.username" formControlName="username"> </td>
+                        </tr>
+                        <tr class="text-danger" *ngIf="registerForm.controls['username'].hasError('required') && (registerForm.controls['username'].dirty || registerForm.controls['username'].touched)">
+                            <td></td>
+                            <td>This field is required</td>
+                        </tr>
+                        <tr class="text-danger" *ngIf="alert">
+                            <td></td>
+                            <td>Username Exists</td>
+                        </tr>
+                        <br>
+                        <tr>
+                            <td> Password </td>
+                            <td> <input type="password"  class="form-control" name="password" [(ngModel)]="user.password" formControlName="password"> </td>
+                        </tr>
+                        <tr class="text-danger" *ngIf="registerForm.controls['password'].hasError('required') && (registerForm.controls['password'].dirty || registerForm.controls['password'].touched)">
+                            <td></td>
+                            <td>This field is required</td>
+                        </tr>
+                        <tr class="text-danger" *ngIf="registerForm.controls['password'].hasError('minlength') && (registerForm.controls['password'].dirty || registerForm.controls['password'].touched)">
+                            <td></td>
+                            <td>Password must be at least 6 characters</td>
+                        </tr>
+                        <br>
+                        <tr>
+                            <td> <button type="reset" class="btn btn-primary"> Reset </button></td>
+                            <td> 
+                                <button type="button" [disabled]="!registerForm.valid" class="btn btn-success" (click)="register()"> 
+                                    Register 
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+              
+          

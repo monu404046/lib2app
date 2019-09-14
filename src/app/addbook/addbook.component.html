@@ -1,0 +1,48 @@
+<div class="card-body">
+    <div class="row justify-content-center ">
+        <div class="col col-12 col-sm-12 col-md-12 col-lg-12">    
+            <div class="card" id="card2">
+                <h5 class="card-header text-center"> Add Book </h5>
+                <div class="card-body">
+                    <table class="table table-borderless">
+                        <tr>
+                            <td> Title </td>
+                            <td> <input type="text" name="title" class="form-control" [(ngModel)]="book.bookTitle" required > </td>
+                        </tr>
+                        <br>
+                        <tr>
+                            <td> Author </td>
+                            <td> <input type="text" class="form-control" name="author" [(ngModel)]="book.author" required> </td>
+                        </tr>
+                        <br>
+                        <tr>
+                            <td> Genre </td>
+                            <td> <input type="text" class="form-control" name="genre" [(ngModel)]="book.genre" required> </td>
+                        </tr>
+                        <br>
+                        <tr>
+                            <td> Description </td>
+                            <td> <textarea class="form-control" name="description" [(ngModel)]="book.description" id="" cols="100" rows="5"></textarea> </td>
+                        </tr>
+                        <br>
+                        <tr>
+                            <td> Price </td>
+                            <td> <input type="number" class="form-control" name="price" [(ngModel)]="book.price"> </td>
+                        </tr>
+                        <br>
+                        <tr>
+                            <td> Upload Image </td>
+                            <td> <input type="file" class="form-control" name="bimage" [(ngModel)]="file" ng2FileSelect [uploader]="uploader" > </td>
+                        </tr>
+                        <br>
+                        <tr>
+                            <td> <button type="reset" class="btn btn-primary"> Reset </button></td>
+                            <td> <button type="button" (click)="uploader.uploadAll(); addBook()" class="btn btn-success" [disabled]="!uploader.getNotUploadedItems().length"> Add </button></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    

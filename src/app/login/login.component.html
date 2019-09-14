@@ -1,0 +1,39 @@
+<div class="card-body">
+  <div class="row justify-content-center ">
+      <div class="col col-12 col-sm-12 col-md-6 col-lg-6">    
+          <div class="card" id="card1">
+            <div class="alert alert-danger" role="alert" *ngIf="alert">
+              Incorrent Username or Password!
+            </div>
+            <h5 class="card-header text-center"> Login </h5>
+            <div class="card-body" [formGroup]="loginForm">
+              <table class="table table-borderless">
+                  <tr>
+                    <td> Username </td>
+                    <td> <input type="text" class="form-control" [(ngModel)]="credintials.username" formControlName="username"> </td>
+                  </tr>
+                  <tr class="text-danger" *ngIf="loginForm.controls['username'].hasError('required') && (loginForm.controls['username'].dirty || loginForm.controls['username'].touched)">
+                      <td></td>
+                      <td>This field is required</td>
+                  </tr>
+                  <br>
+                  <tr>
+                    <td> Password </td>
+                    <td> <input type="password" class="form-control" [(ngModel)]="credintials.password" formControlName="password"> </td>
+                  </tr>
+                  <tr class="text-danger" *ngIf="loginForm.controls['password'].hasError('required') && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)">
+                      <td></td>
+                      <td>This field is required</td>
+                  </tr>
+                  <br>
+                  <tr>
+                    <td> <button type="reset" class="btn btn-primary"> Reset </button></td>
+                    <td> <button type="button" class="btn btn-success" [disabled]=!loginForm.valid (click)="login()"> Login </button></td>
+                  </tr>
+              </table>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+    
